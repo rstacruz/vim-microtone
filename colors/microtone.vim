@@ -83,7 +83,7 @@ let s:is_dark = (&background == 'dark')
 " Basic syntax {{{
   call s:LinkGroups({
     \ 'Normal': ['Special', 'Identifier', 'PreProc', 'Ignore', 'Error',
-                \ 'Todo', 'MoreMsg', 'ErrorMsg', 'SpecialKey'],
+                \ 'Todo', 'MoreMsg', 'ErrorMsg', 'SpecialKey', 'Number', 'Boolean'],
     \ 'BaseA': ['LineNr', 'NonText', 'EndOfBuffer', 'SignColumn',
                \ 'FoldColumn', 'Noise'],
     \ 'BaseAi': ['Comment', 'Folded'],
@@ -116,6 +116,8 @@ let s:is_dark = (&background == 'dark')
   hi! link jsDestructuringBlock BaseH2
   hi! link jsFuncName           BaseH2 " `greet` in `function greet()`
   hi! link jsVariableDef        BaseH2 " `user` in `const user = ...`
+  hi! link jsObjectKey          Type " `keyname` in `{ keyname: 1234 }`
+  hi! link jsThis               Type " `this` in `this.render()`
 
   hi! link mkdBold          Delimiter " `*` in `**hello**`
   hi! link mkdCodeDelimiter Delimiter
@@ -128,9 +130,10 @@ let s:is_dark = (&background == 'dark')
   hi! link pythonClass    BaseH2
   hi! link pythonFunction BaseH2
 
-  hi! link rubyClassName                 BaseH2
-  hi! link rubyMethodName                BaseH2
-  hi! link rubyModuleName                BaseH2
+  hi! link rubyClassName  BaseH2
+  hi! link rubyMethodName BaseH2
+  hi! link rubyModuleName BaseH2
+
   hi! link typescriptAliasDeclaration    BaseH2 " `Post` in `type Post = { ... }`
   hi! link typescriptDestructureVariable BaseH2 " `x` in `{ x } = y`
   hi! link typescriptExport              Statement " `export`
@@ -138,8 +141,14 @@ let s:is_dark = (&background == 'dark')
   hi! link typescriptIdentifierName      Normal " `React` in `import React from 'react'`
   hi! link typescriptImport              Statement " `import` and `from`
   hi! link typescriptInterfaceName       BaseH2 " `Post` in `inteface Post { ... }`
-  hi! link typescriptLabel               Statement " `keyname` in `{ keyname: 1234 }`
+  hi! link typescriptLabel               Type " `keyname` in `{ keyname: 1234 }`
   hi! link typescriptVariableDeclaration BaseH2 " `user` in `const user = ...`
+  hi! link typescriptArrayMethod         Normal " `map` in `[...].map()`
+  hi! link typescriptStringMethod        Normal " `split` in `'...'.split()`
+  hi! link typescriptRegExpProp          Normal " `global` in `theme().global`
+  hi! link typescriptBOMLocationMethod   Normal " `replace` in `'...'.replace()`
+  hi! link typescriptCacheMethod         Normal " `match` in `bg.match()`
+  hi! link typescriptMathStaticMethod    Normal " `random` in `Math.random()`
 
   hi! link vimFunction BaseH2 " `! Hello` in `function! Hello()`
   hi! link vimHiGroup  Normal " `Normal` in `hi Normal ctermfg=none`
