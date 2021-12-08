@@ -19,6 +19,7 @@ let s:is_dark = (&background == 'dark')
 
   " Colours of increasing importance
   " (A noise > B keywords > C type > D constants)
+  " [i] italic, [u] underline, [r] reversed
   hi BaseA  ctermfg=8
   hi BaseAi ctermfg=8 cterm=italic gui=italic
   hi BaseB  ctermfg=4
@@ -27,8 +28,9 @@ let s:is_dark = (&background == 'dark')
   hi BaseD  ctermfg=2
 
   " Ranges (cursorline > visual)
-  hi BaseR1 ctermbg=8
-  hi BaseR2 ctermbg=8
+  hi BaseR1  ctermbg=8
+  hi BaseR1r ctermfg=8
+  hi BaseR2  ctermbg=8
 
   " Highlights (search > title > selection)
   hi BaseH1 ctermfg=3 ctermbg=0 cterm=underline
@@ -37,13 +39,15 @@ let s:is_dark = (&background == 'dark')
 
   " 256 color background overrides
   if s:is_dark
-    hi BaseR1 ctermbg=237
-    hi BaseR2 ctermbg=238
-    hi BaseH2 ctermbg=236
+    hi BaseR1  ctermbg=237
+    hi BaseR1r ctermfg=237
+    hi BaseR2  ctermbg=238
+    hi BaseH2  ctermbg=236
   else
-    hi BaseR1 ctermbg=254
-    hi BaseR2 ctermbg=253
-    hi BaseH2 ctermbg=230
+    hi BaseR1  ctermbg=254
+    hi BaseR1r ctermfg=254
+    hi BaseR2  ctermbg=253
+    hi BaseH2  ctermbg=230
   endif
 
   hi UndercurlError gui=undercurl guisp=#ff5555 cterm=underline
@@ -74,7 +78,7 @@ let s:is_dark = (&background == 'dark')
   call s:LinkGroups({
     \ 'Normal': ['Special', 'Identifier', 'PreProc', 'Ignore', 'Error',
                 \ 'Todo', 'MoreMsg', 'ErrorMsg', 'SpecialKey'],
-    \ 'BaseA': ['NonText', 'VertSplit', 'EndOfBuffer', 'SignColumn',
+    \ 'BaseA': ['NonText', 'EndOfBuffer', 'SignColumn',
                \ 'FoldColumn', 'Noise', 'LineNr'],
     \ 'BaseAi': ['Comment', 'Folded'],
     \ 'BaseB': ['Statement'],
@@ -82,6 +86,7 @@ let s:is_dark = (&background == 'dark')
     \ 'BaseC': ['Type', 'Quote', 'Directory', 'Delimiter', 'Constant', 'Operator'],
     \ 'BaseD': ['String'],
     \ 'BaseR1': ['CursorLine', 'TabLine', 'TabLineFill', 'StatusLineNC', 'Pmenu'],
+    \ 'BaseR1r': ['VertSplit'],
     \ 'BaseR2': ['Visual', 'StatusLine'],
     \ 'BaseH1': ['Search', 'MatchParen'],
     \ 'BaseH2': ['Title'],
@@ -92,8 +97,8 @@ let s:is_dark = (&background == 'dark')
 
 " Plugin syntax {{{
 
-  hi! link TelescopeBorder               NonText
-  hi! link FloatermBorder                NonText
+  hi! link TelescopeBorder               BaseR1r
+  hi! link FloatermBorder                BaseR1r
   hi! link StartifyFile                  String
   hi! link StartifyPath                  Statement
   hi! link StartifySlash                 Statement
