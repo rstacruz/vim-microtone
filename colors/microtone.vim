@@ -84,8 +84,8 @@ let s:is_dark = (&background == 'dark')
   call s:LinkGroups({
     \ 'Normal': ['Special', 'Identifier', 'PreProc', 'Ignore', 'Error',
                 \ 'Todo', 'MoreMsg', 'ErrorMsg', 'SpecialKey'],
-    \ 'BaseA': ['NonText', 'EndOfBuffer', 'SignColumn',
-               \ 'FoldColumn', 'Noise', 'LineNr'],
+    \ 'BaseA': ['LineNr', 'NonText', 'EndOfBuffer', 'SignColumn',
+               \ 'FoldColumn', 'Noise'],
     \ 'BaseAi': ['Comment', 'Folded'],
     \ 'BaseB': ['Statement', 'Operator', 'Delimiter', 'Quote'],
     \ 'BaseBu': ['Underlined'],
@@ -101,56 +101,68 @@ let s:is_dark = (&background == 'dark')
   " Later: DiffAdd DiffChange DiffDelete DiffText Conceal SpellBad SpellCap SpellRare SpellLocal
 " }}}
 
-" Plugin syntax {{{
+" Syntax - filetypes {{{
+  hi! link cssClassName     Type " `.button` in `.button { ... }`
+  hi! link cssIdentifier    Type " `#button` in `#button { ... }`
+  hi! link cssProp          Statement " `display` in `display: block`
+  hi! link cssPseudoClassId Type " `:root` in `:root { ... }`
 
-  hi! link TelescopeBorder               BaseR1r
-  hi! link FloatermBorder                BaseR1r
-  hi! link StartifyFile                  String
-  hi! link StartifyPath                  Statement
-  hi! link StartifySlash                 Statement
-  hi! link StartifyHeader                Title
-  hi! link mkdHeading                    Delimiter " `#` in `# Hello`
-  hi! link mkdBold                       Delimiter " `*` in `**hello**`
-  hi! link mkdItalic                     Delimiter " `_` in `_hello_`
-  hi! link mkdListItem                   Delimiter " `-` in `- item`
-  hi! link mkdCodeStart                  Delimiter " triple-backticks
-  hi! link mkdCodeEnd                    Delimiter
-  hi! link mkdCodeDelimiter              Delimiter
-  hi! link GitSignsAdd                   Type
-  hi! link GitSignsDelete                Type
-  hi! link GitSignsChange                Type
-  hi! link htmlBold                      String
-  hi! link htmlItalic                    Type
-  hi! link typescriptImport              Statement " `import` and `from`
-  hi! link typescriptExport              Statement " `export`
-  hi! link typescriptIdentifierName      Normal " `React` in `import React from 'react'`
-  hi! link typescriptLabel               Statement " `keyname` in `{ keyname: 1234 }`
-  hi! link htmlH1                        BaseH2
-  hi! link mkdHeading                    BaseH2
-  hi! link typescriptDestructureVariable BaseH2 " `x` in `{ x } = y`
-  hi! link typescriptAliasDeclaration    BaseH2 " `Post` in `type Post = { ... }`
-  hi! link typescriptVariableDeclaration BaseH2 " `user` in `const user = ...`
-  hi! link typescriptInterfaceName       BaseH2 " `Post` in `inteface Post { ... }`
-  hi! link typescriptFuncName            BaseH2 " `greet` in `function greet()`
-  hi! link jsFuncName                    BaseH2 " `greet` in `function greet()`
-  hi! link jsVariableDef                 BaseH2 " `user` in `const user = ...`
-  hi! link jsDestructuringBlock          BaseH2
+  hi! link cUserFunction BaseH2
+
+  hi! link htmlBold   String
+  hi! link htmlH1     BaseH2
+  hi! link htmlItalic Type
+
+  hi! link jsDestructuringBlock BaseH2
+  hi! link jsFuncName           BaseH2 " `greet` in `function greet()`
+  hi! link jsVariableDef        BaseH2 " `user` in `const user = ...`
+
+  hi! link mkdBold          Delimiter " `*` in `**hello**`
+  hi! link mkdCodeDelimiter Delimiter
+  hi! link mkdCodeEnd       Delimiter
+  hi! link mkdCodeStart     Delimiter " triple-backticks
+  hi! link mkdHeading       BaseH2 " `#` in `# Hello`
+  hi! link mkdItalic        Delimiter " `_` in `_hello_`
+  hi! link mkdListItem      Delimiter " `-` in `- item`
+
+  hi! link pythonClass    BaseH2
+  hi! link pythonFunction BaseH2
+
+  hi! link rubyClassName                 BaseH2
   hi! link rubyMethodName                BaseH2
   hi! link rubyModuleName                BaseH2
-  hi! link rubyClassName                 BaseH2
-  hi! link pythonClass                   BaseH2
-  hi! link pythonFunction                BaseH2
-  hi! link cUserFunction                 BaseH2
-  hi! link vimFunction                   BaseH2 " `! Hello` in `function! Hello()`
-  hi! link vimHiGroup                    Normal " `Normal` in `hi Normal ctermfg=none`
-  hi! link CocFadeOut                    UndercurlInfo " unused vars
-  hi! link CocUnderline                  UndercurlError 
-  hi! link CocErrorHighlight             UndercurlError 
-  hi! link CocWarningHighlight           UndercurlInfo 
-  hi! link cssProp                       Statement " `display` in `display: block`
-  hi! link cssClassName                  Type " `.button` in `.button { ... }`
-  hi! link cssIdentifier                 Type " `#button` in `#button { ... }`
-  hi! link cssPseudoClassId              Type " `:root` in `:root { ... }`
+  hi! link typescriptAliasDeclaration    BaseH2 " `Post` in `type Post = { ... }`
+  hi! link typescriptDestructureVariable BaseH2 " `x` in `{ x } = y`
+  hi! link typescriptExport              Statement " `export`
+  hi! link typescriptFuncName            BaseH2 " `greet` in `function greet()`
+  hi! link typescriptIdentifierName      Normal " `React` in `import React from 'react'`
+  hi! link typescriptImport              Statement " `import` and `from`
+  hi! link typescriptInterfaceName       BaseH2 " `Post` in `inteface Post { ... }`
+  hi! link typescriptLabel               Statement " `keyname` in `{ keyname: 1234 }`
+  hi! link typescriptVariableDeclaration BaseH2 " `user` in `const user = ...`
+
+  hi! link vimFunction BaseH2 " `! Hello` in `function! Hello()`
+  hi! link vimHiGroup  Normal " `Normal` in `hi Normal ctermfg=none`
+" }}}
+
+" Syntax - plugins {{{
+  hi! link CocErrorHighlight   UndercurlError
+  hi! link CocFadeOut          UndercurlInfo " unused vars
+  hi! link CocUnderline        UndercurlError
+  hi! link CocWarningHighlight UndercurlInfo
+
+  hi! link FloatermBorder LineNr
+
+  hi! link GitSignsAdd    Type
+  hi! link GitSignsChange Type
+  hi! link GitSignsDelete Type
+
+  hi! link StartifyFile   String
+  hi! link StartifyHeader Title
+  hi! link StartifyPath   Statement
+  hi! link StartifySlash  Statement
+
+  hi! link TelescopeBorder LineNr
 " }}}
 
 " Variations {{{
