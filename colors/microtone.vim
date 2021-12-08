@@ -25,7 +25,7 @@ let s:is_dark = (&background == 'dark')
   hi BaseAi ctermfg=8 cterm=italic gui=italic
   hi BaseB  ctermfg=4
   hi BaseBu ctermfg=4 cterm=underline gui=underline
-  hi BaseC  ctermfg=4 cterm=italic gui=italic
+  hi BaseC  ctermfg=5 cterm=italic gui=italic
   hi BaseD  ctermfg=2
 
   " Ranges:
@@ -87,9 +87,9 @@ let s:is_dark = (&background == 'dark')
     \ 'BaseA': ['NonText', 'EndOfBuffer', 'SignColumn',
                \ 'FoldColumn', 'Noise', 'LineNr'],
     \ 'BaseAi': ['Comment', 'Folded'],
-    \ 'BaseB': ['Statement'],
+    \ 'BaseB': ['Statement', 'Operator', 'Delimiter', 'Quote'],
     \ 'BaseBu': ['Underlined'],
-    \ 'BaseC': ['Type', 'Quote', 'Directory', 'Delimiter', 'Constant', 'Operator'],
+    \ 'BaseC': ['Type', 'Directory', 'Constant'],
     \ 'BaseD': ['String'],
     \ 'BaseR1': ['CursorLine', 'TabLine', 'TabLineFill', 'StatusLineNC'],
     \ 'BaseR1r': ['VertSplit'],
@@ -121,11 +121,10 @@ let s:is_dark = (&background == 'dark')
   hi! link GitSignsChange                Type
   hi! link htmlBold                      String
   hi! link htmlItalic                    Type
-  hi! link typescriptImport              Type " `import` and `from`
-  hi! link typescriptExport              Type " `export`
+  hi! link typescriptImport              Statement " `import` and `from`
+  hi! link typescriptExport              Statement " `export`
   hi! link typescriptIdentifierName      Normal " `React` in `import React from 'react'`
-  hi! link typescriptLabel               Type " `hello` in `{ hello: 1234 }`
-  hi! link cssPseudoClassId              Type " `:root` in `:root { ... }`
+  hi! link typescriptLabel               Statement " `keyname` in `{ keyname: 1234 }`
   hi! link htmlH1                        BaseH2
   hi! link mkdHeading                    BaseH2
   hi! link typescriptDestructureVariable BaseH2 " `x` in `{ x } = y`
@@ -148,6 +147,10 @@ let s:is_dark = (&background == 'dark')
   hi! link CocUnderline                  UndercurlError 
   hi! link CocErrorHighlight             UndercurlError 
   hi! link CocWarningHighlight           UndercurlInfo 
+  hi! link cssProp                       Statement " `display` in `display: block`
+  hi! link cssClassName                  Type " `.button` in `.button { ... }`
+  hi! link cssIdentifier                 Type " `#button` in `#button { ... }`
+  hi! link cssPseudoClassId              Type " `:root` in `:root { ... }`
 " }}}
 
 " Variations {{{
