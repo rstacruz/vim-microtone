@@ -17,9 +17,10 @@ let s:is_dark = (&background == 'dark')
   " Normal
   hi Normal ctermfg=none ctermbg=none
 
-  " Colours of increasing importance
-  " (A noise > B keywords > C type > D constants)
-  " [i] italic, [u] underline, [r] reversed
+  " Colours of increasing importance:
+  "   [A] noise > [B] keywords > [C] type > [D] constants
+  " With some variations:
+  "   [i] italic [u] underline [r] reversed
   hi BaseA  ctermfg=8
   hi BaseAi ctermfg=8 cterm=italic gui=italic
   hi BaseB  ctermfg=4
@@ -27,15 +28,23 @@ let s:is_dark = (&background == 'dark')
   hi BaseC  ctermfg=4 cterm=italic gui=italic
   hi BaseD  ctermfg=2
 
-  " Ranges (cursorline > visual)
+  " Ranges:
+  "   [R1] cursorline > [R2] visual/menu
+  " These don't have fg colours, N/ABCD are supposed to be readable
+  " over these backgrounds
   hi BaseR1  ctermbg=8
   hi BaseR1r ctermfg=8
   hi BaseR2  ctermbg=8
 
-  " Highlights (search > title > selection)
+  " Highlights:
+  "   [H1] search > [H2] title > [H3] selection
   hi BaseH1 ctermfg=3 ctermbg=0 cterm=underline
   hi BaseH2 ctermfg=3 cterm=bold
   hi BaseH3 ctermbg=5 ctermfg=232
+
+  " Curled underlines
+  hi UndercurlError gui=undercurl guisp=#ff5555 cterm=underline
+  hi UndercurlInfo  gui=undercurl guisp=#33aa33 cterm=underline
 
   " 256 color background overrides
   if s:is_dark
@@ -49,9 +58,6 @@ let s:is_dark = (&background == 'dark')
     hi BaseR2  ctermbg=253
     hi BaseH2  ctermbg=230
   endif
-
-  hi UndercurlError gui=undercurl guisp=#ff5555 cterm=underline
-  hi UndercurlInfo  gui=undercurl guisp=#33aa33 cterm=underline
 " }}}
 
 " Base palette - GUI {{{
@@ -85,9 +91,9 @@ let s:is_dark = (&background == 'dark')
     \ 'BaseBu': ['Underlined'],
     \ 'BaseC': ['Type', 'Quote', 'Directory', 'Delimiter', 'Constant', 'Operator'],
     \ 'BaseD': ['String'],
-    \ 'BaseR1': ['CursorLine', 'TabLine', 'TabLineFill', 'StatusLineNC', 'Pmenu'],
+    \ 'BaseR1': ['CursorLine', 'TabLine', 'TabLineFill', 'StatusLineNC'],
     \ 'BaseR1r': ['VertSplit'],
-    \ 'BaseR2': ['Visual', 'StatusLine'],
+    \ 'BaseR2': ['Visual', 'StatusLine', 'Pmenu'],
     \ 'BaseH1': ['Search', 'MatchParen'],
     \ 'BaseH2': ['Title'],
     \ 'BaseH3': ['TabLineSel', 'PmenuSel'],
