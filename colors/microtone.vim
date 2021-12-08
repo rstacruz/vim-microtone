@@ -21,8 +21,8 @@ let s:is_dark = (&background == 'dark')
   " (A noise > B keywords > C type > D constants)
   hi BaseA  ctermfg=8
   hi BaseAi ctermfg=8 cterm=italic gui=italic
-  hi BaseB  ctermfg=5
-  hi BaseBu ctermfg=5 cterm=underline gui=underline
+  hi BaseB  ctermfg=4
+  hi BaseBu ctermfg=4 cterm=underline gui=underline
   hi BaseC  ctermfg=4 cterm=italic gui=italic
   hi BaseD  ctermfg=2
 
