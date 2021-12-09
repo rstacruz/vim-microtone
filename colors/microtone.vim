@@ -25,7 +25,7 @@ let s:is_dark = (&background == 'dark')
   hi BaseAi ctermfg=8 cterm=italic gui=italic
   hi BaseB  ctermfg=4
   hi BaseBu ctermfg=4 cterm=underline gui=underline
-  hi BaseC  ctermfg=5 cterm=italic gui=italic
+  hi BaseC  ctermfg=4 cterm=italic gui=italic
   hi BaseD  ctermfg=2
 
   " Ranges:
@@ -98,6 +98,7 @@ let s:is_dark = (&background == 'dark')
     \ 'BaseH2': ['Title'],
     \ 'BaseH3': ['TabLineSel', 'PmenuSel'],
     \ })
+  " Underlined for htmlLink and mkdLink
   " Later: DiffAdd DiffChange DiffDelete DiffText Conceal SpellBad SpellCap SpellRare SpellLocal
 " }}}
 
@@ -190,4 +191,4 @@ let s:is_dark = (&background == 'dark')
       hi! BaseH2 ctermbg=none guibg=none
     endif
   endfor
-" }}
+  " }}}
