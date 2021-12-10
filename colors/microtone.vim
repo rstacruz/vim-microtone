@@ -195,4 +195,4 @@ let s:is_dark = (&background == 'dark')
   endfunction
 
   call MicrotoneSetVariantOverrides()
-  " }}}
+ b" }}}
