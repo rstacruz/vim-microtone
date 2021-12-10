@@ -38,7 +38,7 @@ let s:is_dark = (&background == 'dark')
 
   " Highlights:
   "   [H1] search > [H2] title > [H3] selection
-  hi BaseH1 ctermfg=3 ctermbg=0 cterm=underline
+  hi BaseH1 ctermfg=3 ctermbg=0 cterm=bold,underline
   hi BaseH2 ctermfg=3 cterm=bold
   hi BaseH3 ctermbg=5 ctermfg=232
 
