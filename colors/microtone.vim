@@ -176,19 +176,23 @@ let s:is_dark = (&background == 'dark')
 " }}}
 
 " Variations {{{
-  for style in get(g:, 'microtone_variants', [])
-    if style == 'less-italic' " less italic
-      hi! BaseC cterm=none gui=none
+  function! MicrotoneSetVariantOverrides()
+    for style in get(g:, 'microtone_variants', [])
+      if style == 'less-italic' " less italic
+        hi! BaseC cterm=none gui=none
 
-    elseif style == 'no-italic' " no italic
-      hi! BaseAi cterm=none gui=none
-      hi! BaseC cterm=none gui=none
+      elseif style == 'no-italic' " no italic
+        hi! BaseAi cterm=none gui=none
+        hi! BaseC cterm=none gui=none
 
-    elseif style == 'bg' " add a solid background
-      hi! Normal ctermbg=0
+      elseif style == 'bg' " add a solid background
+        hi! Normal ctermbg=0
 
-    elseif style == 'no-highlight' " no background highlight on id
-      hi! BaseH2 ctermbg=none guibg=none
-    endif
-  endfor
+      elseif style == 'no-highlight' " no background highlight on id
+        hi! BaseH2 ctermbg=none guibg=none
+      endif
+    endfor
+  endfunction
+
+  call MicrotoneSetVariantOverrides()
   " }}}

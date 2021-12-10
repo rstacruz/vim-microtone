@@ -1,8 +1,7 @@
 runtime colors/microtone.vim
 let colors_name = 'microtone-16b'
-" Colourful too, but rotates the colours a bit
-hi! BaseD ctermfg=5
-hi! BaseB ctermfg=3
-hi! BaseC ctermfg=6
-hi! BaseH1 ctermbg=6 ctermfg=0
-hi! BaseH3 ctermbg=6 ctermfg=0
+
+" Slightly different colour for keywords
+" This is an invertion of microtone-16a
+hi! BaseB ctermfg=5
+hi! BaseBu ctermfg=5 cterm=underline gui=underline
