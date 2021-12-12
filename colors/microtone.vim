@@ -163,9 +163,9 @@ let s:is_dark = (&background == 'dark')
 
   hi! link FloatermBorder LineNr
 
-  hi! link GitSignsAdd    Type
-  hi! link GitSignsChange Type
-  hi! link GitSignsDelete Type
+  hi! link GitSignsAdd    SignColumn
+  hi! link GitSignsChange SignColumn
+  hi! link GitSignsDelete SignColumn
 
   hi! link StartifyFile   String
   hi! link StartifyHeader Title
