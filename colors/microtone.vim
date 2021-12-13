@@ -37,7 +37,8 @@ let s:is_dark = (&background == 'dark')
   hi BaseR2  ctermbg=8
 
   " Highlights:
-  "   [H1] search > [H2] title > [H3] selection
+  "   [H1] search (yellow) > [H2] title (blue) >
+  "   [H3] selection (dynamic)
   hi BaseH1 ctermfg=3 ctermbg=0 cterm=bold,underline
   hi BaseH2 ctermfg=3 cterm=bold
   hi BaseH3 ctermbg=5 ctermfg=232
@@ -51,12 +52,14 @@ let s:is_dark = (&background == 'dark')
     hi BaseR1  ctermbg=237
     hi BaseR1r ctermfg=237
     hi BaseR2  ctermbg=238
-    hi BaseH2  ctermbg=236
+    hi BaseH1  ctermbg=220 ctermfg=236
+    hi BaseH2  ctermbg=60  ctermfg=153
   else
     hi BaseR1  ctermbg=254
     hi BaseR1r ctermfg=254
     hi BaseR2  ctermbg=253
-    hi BaseH2  ctermbg=230
+    hi BaseH1  ctermbg=223 ctermfg=60
+    hi BaseH2  ctermbg=153 ctermfg=60
   endif
 " }}}
 
