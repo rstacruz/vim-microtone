@@ -53,7 +53,7 @@ let s:is_dark = (&background == 'dark')
     hi BaseR1r ctermfg=237
     hi BaseR2  ctermbg=238
     hi BaseH1  ctermbg=220 ctermfg=236
-    hi BaseH2  ctermbg=60  ctermfg=153
+    hi BaseH2  ctermbg=236 ctermfg=153
   else
     hi BaseR1  ctermbg=254
     hi BaseR1r ctermfg=254
