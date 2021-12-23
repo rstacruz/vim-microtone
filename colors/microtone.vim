@@ -54,12 +54,16 @@ let s:is_dark = (&background == 'dark')
     hi BaseR2  ctermbg=238
     hi BaseH1  ctermbg=220 ctermfg=236
     hi BaseH2  ctermbg=236 ctermfg=153
+    hi DiffAdded   ctermbg=22
+    hi DiffRemoved ctermbg=52
   else
     hi BaseR1  ctermbg=254
     hi BaseR1r ctermfg=254
     hi BaseR2  ctermbg=253
     hi BaseH1  ctermbg=230 ctermfg=60
     hi BaseH2  ctermbg=195 ctermfg=60
+    hi DiffAdded   ctermbg=121
+    hi DiffRemoved ctermbg=225
   endif
 " }}}
 
@@ -98,7 +102,7 @@ let s:is_dark = (&background == 'dark')
     \ 'BaseR1r': ['VertSplit'],
     \ 'BaseR2': ['Visual', 'StatusLine', 'Pmenu'],
     \ 'BaseH1': ['Search', 'MatchParen'],
-    \ 'BaseH2': ['Title'],
+    \ 'BaseH2': ['Title', 'DiffLine'],
     \ 'BaseH3': ['TabLineSel', 'PmenuSel'],
     \ })
   " Underlined for htmlLink and mkdLink
@@ -153,6 +157,8 @@ let s:is_dark = (&background == 'dark')
   hi! link typescriptBOMLocationMethod   Normal " `replace` in `'...'.replace()`
   hi! link typescriptCacheMethod         Normal " `match` in `bg.match()`
   hi! link typescriptMathStaticMethod    Normal " `random` in `Math.random()`
+  hi! link fugitiveStagedHeading         BaseH2
+  hi! link fugitiveUnstagedHeading       BaseH2
 
   hi! link vimFunction BaseH2 " `! Hello` in `function! Hello()`
   hi! link vimHiGroup  Normal " `Normal` in `hi Normal ctermfg=none`
