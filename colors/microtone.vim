@@ -25,7 +25,7 @@ let s:is_dark = (&background == 'dark')
   hi BaseAi ctermfg=8 cterm=italic gui=italic
   hi BaseB  ctermfg=4
   hi BaseBu ctermfg=4 cterm=underline gui=underline
-  hi BaseC  ctermfg=4 cterm=italic gui=italic
+  hi BaseC  ctermfg=6 cterm=italic gui=italic
   hi BaseD  ctermfg=2
 
   " Ranges:

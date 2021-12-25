@@ -1,5 +1,5 @@
 runtime colors/microtone.vim
 let colors_name = 'microtone-16a'
 
-" Brighter colours by adding another colour
-hi! BaseC ctermfg=6
+" Use less colours by making C(type) like B(keywords)
+hi! BaseC ctermfg=4
