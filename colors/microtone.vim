@@ -32,9 +32,11 @@ let s:is_dark = (&background == 'dark')
   "   [R1] cursorline > [R2] visual/menu
   " These don't have fg colours, N/ABCD are supposed to be readable
   " over these backgrounds
+  " the [r] variant is reversed for lines
   hi BaseR1  ctermbg=8
-  hi BaseR1r ctermfg=8
   hi BaseR2  ctermbg=8
+  hi BaseR1r ctermfg=8
+  hi BaseR2r ctermfg=8
 
   " Highlights:
   "   [H1] search (yellow) > [H2] title (blue) >
@@ -52,6 +54,7 @@ let s:is_dark = (&background == 'dark')
     hi BaseR1  ctermbg=237
     hi BaseR1r ctermfg=237
     hi BaseR2  ctermbg=238
+    hi BaseR2r ctermfg=238
     hi BaseH1  ctermbg=220 ctermfg=236
     hi BaseH2  ctermbg=236 ctermfg=153
     hi DiffAdded   ctermbg=22
@@ -60,6 +63,7 @@ let s:is_dark = (&background == 'dark')
     hi BaseR1  ctermbg=254
     hi BaseR1r ctermfg=254
     hi BaseR2  ctermbg=253
+    hi BaseR2r ctermfg=253
     hi BaseH1  ctermbg=230 ctermfg=60
     hi BaseH2  ctermbg=195 ctermfg=60
     hi DiffAdded   ctermbg=121
@@ -182,6 +186,9 @@ let s:is_dark = (&background == 'dark')
   hi! link StartifySlash  Statement
 
   hi! link TelescopeBorder LineNr
+
+  hi! link IndentBlanklineChar BaseR1r
+  hi! link IndentBlanklineContextChar BaseC
 " }}}
 
 " Variations {{{
