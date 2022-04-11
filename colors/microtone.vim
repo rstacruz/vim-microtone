@@ -172,7 +172,7 @@ let s:is_dark = (&background == 'dark')
 
   hi! link FloatermBorder LineNr
 
-  hi! link GitSignsAdd    SignColumn
+  hi! link GitSignsAdd    BaseC
   hi! link GitSignsChange SignColumn
   hi! link GitSignsDelete SignColumn
 
